@@ -25,3 +25,4 @@ testqueries = New(conn)
 
 os.Exit(m.Run())
 }
+

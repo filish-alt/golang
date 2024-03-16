@@ -26,7 +26,7 @@ type Post struct {
 
 type User struct {
 	ID        int32            `json:"id"`
-	Username  pgtype.Text      `json:"username"`
-	Role      pgtype.Text      `json:"role"`
+	Username string    `json:"username"`
+	Role      string      `json:"role"`
 	CreatedAt pgtype.Timestamp `json:"created_at"`
 }

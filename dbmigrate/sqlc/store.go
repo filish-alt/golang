@@ -40,7 +40,7 @@ return tx.Commit()
 }
 
 type TransferParam struct{
-   Username pgtype
+   Username string
 }
 
 type TransferResult struct{
@@ -49,8 +49,9 @@ type TransferResult struct{
 func(store *Store) TransferMoney(context context.Context,transferParam TransferParam) (TransferResult, error){
     var result TransferResult
 
-	err:=store.execTx(context, func(q *Queries) error {
-		result.User, err := q.CreateUsers(context, CreateUsersParams{
+	err := store.execTx(context, func(q *Queries) error {
+		var err error
+		result.User, err = q.CreateUsers(context, CreateUsersParams{
                Username: transferParam.Username,
 		})
 		if err!=nil{
